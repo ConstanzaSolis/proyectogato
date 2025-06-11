@@ -54,7 +54,8 @@ def movimiento_ia(tablero):
         tablero[fila][columna] = "O"
 
 
-def juego_completo():
+
+def juego_completo(victorias_x, victorias_y):
     tablero = crear_tablero()
     jugador_actual = "X"
     while True:
@@ -66,6 +67,10 @@ def juego_completo():
             movimiento_ia(tablero)
         if hay_ganador(tablero):
             print(f"¡{jugador_actual} ha ganado!")
+            if jugador_actual == "X":
+                victorias_x += 1
+            elif jugador_actual == "O":
+                victorias_y += 1
             break
         if tablero_lleno(tablero):
             print("¡Empate!")
@@ -74,6 +79,13 @@ def juego_completo():
             jugador_actual = "X"
         else:
             jugador_actual = "O"
+    return victorias_x, victorias_y
 
+partidas = 0
+victorias_x = 0
+victorias_y = 0
 
-juego_completo()
+while partidas < 3:
+    victorias_x, victorias_y = juego_completo(victorias_x, victorias_y)
+    print(f"X lleva {victorias_x} victorias y O lleva {victorias_y} victorias")
+    partidas = partidas + 1
