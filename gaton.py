@@ -48,10 +48,67 @@ def tablero_lleno(tablero):
 
 
 def movimiento_ia(tablero):
-    casillas_vacias = [(i, j) for i in range(3) for j in range(3) if tablero[i][j] == " "]
-    if casillas_vacias:
-        fila, columna = random.choice(casillas_vacias)
-        tablero[fila][columna] = "O"
+    #fila0
+    if tablero[0][0] == tablero[0][1] != " " and tablero[0][2] == " ":
+        tablero[0][2] = "O"
+    elif tablero[0][1] == tablero[0][2] != " " and tablero[0][0] == " ":
+        tablero[0][0] = "O"
+    elif tablero[0][0] == tablero[0][2] != " " and tablero[0][1] == " ":
+        tablero[0][1] = "O"
+    #fila1
+    elif tablero[1][0] == tablero[1][1] != " " and tablero[1][2] == " ":
+        tablero[1][2] = "O"
+    elif tablero[1][1] == tablero[1][2] != " " and tablero[1][0] == " ":
+        tablero[1][0] = "O"
+    elif tablero[1][0] == tablero[1][2] != " " and tablero[1][1] == " ":
+        tablero[1][1] = "O"
+    #fila2
+    elif tablero[2][0] == tablero[2][1] != " " and tablero[2][2] == " ":
+        tablero[2][2] = "O"
+    elif tablero[2][1] == tablero[2][2] != " " and tablero[2][0] == " ":
+        tablero[2][0] = "O"
+    elif tablero[2][0] == tablero[2][2] != " " and tablero[2][1] == " ":
+        tablero[2][1] = "O"
+    #diagonal1
+    elif tablero[0][0] == tablero[1][1] != " " and tablero[2][2] == " ":
+        tablero[2][2] = "O"
+    elif tablero[1][1] == tablero[2][2] != " " and tablero[0][0] == " ":
+        tablero[0][0] = "O"
+    elif tablero[0][0] == tablero[2][2] != " " and tablero[1][1] == " ":
+        tablero[1][1] = "O"
+    #diagonal2
+    elif tablero[2][0] == tablero[1][1] != " " and tablero[0][2] == " ":
+        tablero[0][2] = "O"
+    elif tablero[1][1] == tablero[0][2] != " " and tablero[2][0] == " ":
+        tablero[2][0] = "O"
+    elif tablero[2][0] == tablero[0][2] != " " and tablero[1][1] == " ":
+        tablero[1][1] = "O"
+    #columna0
+    elif tablero[0][0] == tablero[1][0] != " " and tablero[2][0] == " ":
+        tablero[2][0] = "O"
+    elif tablero[1][0] == tablero[2][0] != " " and tablero[0][0] == " ":
+        tablero[0][0] = "O"
+    elif tablero[0][0] == tablero[2][0] != " " and tablero[1][0] == " ":
+        tablero[2][1] = "O"
+    #columna1
+    elif tablero[0][1] == tablero[1][1] != " " and tablero[2][1] == " ":
+        tablero[2][1] = "O"
+    elif tablero[1][1] == tablero[2][1] != " " and tablero[0][1] == " ":
+        tablero[0][1] = "O"
+    elif tablero[0][1] == tablero[2][1] != " " and tablero[1][1] == " ":
+        tablero[1][1] = "O"
+    #columna2
+    elif tablero[0][2] == tablero[1][2] != " " and tablero[2][2] == " ":
+        tablero[2][2] = "O"
+    elif tablero[1][2] == tablero[2][2] != " " and tablero[0][2] == " ":
+        tablero[0][2] = "O"
+    elif tablero[0][2] == tablero[2][2] != " " and tablero[1][2] == " ":
+        tablero[1][2] = "O"
+    else:
+        casillas_vacias = [(i, j) for i in range(3) for j in range(3) if tablero[i][j] == " "]
+        if casillas_vacias:
+            fila, columna = random.choice(casillas_vacias)
+            tablero[fila][columna] = "O"
 
 
 
